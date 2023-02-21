@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="formBody">
+    <!-- <center> -->
+    <h1 style="text-align: center;"><u>Student Form</u></h1>
+    <br />
+    <div style="display: flex; justify-content: center;">
+        <!-- Input -->
+        <div style="
+            border: 2px solid black;
+            width: 600px;
+            height: 500px;
+            float: left;
+            margin-right: 50px;
+            padding: 10px;
+          ">
+            <table>
+                <tr>
+                    <td><label for="name">First Name:</label></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Last Name:</label></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Email:</label></td>
+                    <td><input type="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Date of Birth:</label></td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Gender:</label></td>
+                    <td><select name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="training" name="radio1">Training Type:</label></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" for="online" name="radio1">Online</td>
+                    <td><input type="radio" for="offline" name="radio1">Offline</td>
+                </tr>
+                <tr>
+                    <td><label for="name">Subject:</label></td>
+                </tr>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="ai&ds">AI&DS-1</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="webX">Web X.0</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="dmbi">DMBI</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="wt">WT</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="ehf">EH&F</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Display -->
+        <div style="
+            border: 2px solid black;
+            width: 600px;
+            height: 500px;
+            float: left;
+          "></div>
+    </div>
+    </center>
+</body>
+
+</html>

@@ -2,10 +2,38 @@ self.addEventListener("install", function (event) {
     event.waitUntil(preLoad());
 });
 
+self.addEventListener("fetch", function (event) {
+    event.respondWith(checkResponse(event.request).catch(function () {
+        console.log("Fetch from cache successful!")
+        return returnFromCache(event.request);
+    }));
+    console.log("Fetch successful!")
+    event.waitUntil(addToCache(event.request));
+});
+self.addEventListener('sync', event => {
+    if (event.tag === 'Sync from cache') {
+        console.log("Sync successful!")
+    }
+});
+
+self.addEventListener('push', function (event) {
+    if (event && event.data) {
+        var data = event.data.json();
+        if (data.method == "PushMessageData") {
+            console.log("Push notification sent");
+            event.waitUntil(self.registration.showNotification("Myntra"))
+        }
+    }
+})
+
+
+var filesToCache = [
+    '/',
+];
 
 var preLoad = function () {
     return caches.open("offline").then(function (cache) { // caching index and important routes
-        return cache.addAll(['/','/images/*']);
+        return cache.addAll(filesToCache);
     });
 };
 
@@ -41,11 +69,11 @@ var addToCache = function (request) {
 var returnFromCache = function (request) {
     return caches.open("offline").then(function (cache) {
         return cache.match(request).then(function (matching) {
-            if (! matching || matching.status == 404) {
+            if (!matching || matching.status == 404) {
                 return cache.match("index.html");
             } else {
                 return matching;
             }
         });
     });
-}
+};

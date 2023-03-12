@@ -1,0 +1,31 @@
+create database sale;
+
+create table customer(
+customerID int primary key,
+firstName varchar(255),
+lastName varchar(255),
+contactNo varchar(255),
+age int
+);
+
+create table product(
+prodID int primary key,
+productName varchar(255),
+price int,
+customerID int
+);
+
+create table store(
+storeID int primary key,
+city varchar(255),
+state varchar(255),
+employeeNo int
+);
+
+create table sales(
+id int primary key,
+customerID int foreign key references customer(customerID),
+productID int foreign key references product(prodID),
+storeID int foreign key references store(storeID),
+year int,
+quantity int);

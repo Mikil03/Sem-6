@@ -11,8 +11,7 @@ age int
 create table product(
 prodID int primary key,
 productName varchar(255),
-price int,
-customerID int
+price int
 );
 
 create table store(
